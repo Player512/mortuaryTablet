@@ -39,13 +39,7 @@
 #lastName1,
 #fastName1,
 #lastName2,
-#fastName2,
-#birthdayAnnoDomini,
-#birthdayMonth,
-#birthdayDay,
-#deathAnniversaryAnnoDomini,
-#deathAnniversaryMonth,
-#deathAnniversaryDay {
+#fastName2 {
     border: none;
     border-bottom: calc(0.15vw + 0.15vh) solid black;
     font-size: calc(2vw + 2vh);
@@ -70,6 +64,19 @@
     font-weight: bold;
     outline: none;
     text-align: center;
+    width: calc(6vw + 6vh);
+}
+
+#monthText,
+#month,
+#dayText,
+#day {
+    width: calc(6vw + 6vh);
+}
+
+#ageAtDeath,
+#ageText,
+#age {
     width: calc(10vw + 10vh);
 }
 
