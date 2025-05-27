@@ -95,31 +95,31 @@
 
 
 #backMortuaryTablet {
-    color: rgb(127, 127,127);
+    color: rgb(63, 63,63);
     font-family: serif;
     font-size: 56.5vw;
     font-weight: bold;
     position: fixed;
     text-decoration: none;
     text-orientation: upright;
-    top: 50%;
-    left: 97%;
-    transform: scale(1, 1.7) translate(-50%, -50%);
+    top: 55%;
+    left: 84%;
+    transform: translate(-50%, -50%);
     writing-mode: vertical-rl;
     z-index: 2;
 }
 
 #chartMortuaryTablet {
-    color: rgb(127, 127,127);
+    color: rgb(63, 63,63);
     font-family: serif;
     font-size: 56.5vw;
     font-weight: bold;
     position: fixed;
     text-decoration: none;
     text-orientation: upright;
-    top: 50%;
-    left: 4%;
-    transform: scale(1, 1.7) translate(-50%, -50%);
+    top: 55%;
+    left: 84%;
+    transform: translate(-50%, -50%);
     writing-mode: vertical-rl;
     z-index: 2;
 }
@@ -193,7 +193,7 @@
 
     #backMortuaryTablet,
     #chartMortuaryTablet {
-        font-size: 40vh;
+        font-size: 20vh;
     }
 
     #annoDominiTextPosition,
