@@ -1,0 +1,199 @@
+#setting {
+    position: absolute;
+    top: 20vh;
+    left: 50%;
+    text-align: center;
+    transform: translate(-50%, 0%);
+}
+
+#removeSelect,
+#addSelect {
+    color: black;
+    font-size: calc(2vw + 2vh);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+#sect {
+    font-size: calc(2vw + 2vh);
+    font-weight: bold;
+    text-decoration: none;
+    width: calc(17vw + 17vh);
+}
+
+#JCSelect,
+#monthSelect {
+    font-size: calc(2vw + 2vh);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+
+#deceasedText {
+    position: absolute;
+    top: 40vh;
+    left: 50%;
+    transform: translate(-50%, 0%);
+}
+
+#lastName1,
+#fastName1,
+#lastName2,
+#fastName2,
+#birthdayAnnoDomini,
+#birthdayMonth,
+#birthdayDay,
+#deathAnniversaryAnnoDomini,
+#deathAnniversaryMonth,
+#deathAnniversaryDay {
+    border: none;
+    border-bottom: calc(0.15vw + 0.15vh) solid black;
+    font-size: calc(2vw + 2vh);
+    font-weight: bold;
+    outline: none;
+    width: calc(12vw + 12vh);
+}
+
+#JCSelect,
+#JCText,
+#year,
+#monthText,
+#month,
+#dayText,
+#day,
+#ageAtDeath,
+#ageText,
+#age {
+    border: none;
+    border-bottom: calc(0.15vw + 0.15vh) solid black;
+    font-size: calc(2vw + 2vh);
+    font-weight: bold;
+    outline: none;
+    text-align: center;
+    width: calc(10vw + 10vh);
+}
+
+#mortuaryTabletPosition {
+    aspect-ratio: 283 / 400;
+    max-width: 100vw;
+    max-height: 100vh;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 100vw;
+    height: calc(400 / 283 * 100vw);
+    z-index: 3;
+}
+
+
+#backMortuaryTablet {
+    color: rgb(127, 127,127);
+    font-family: serif;
+    font-size: 85vw;
+    font-weight: bold;
+    position: fixed;
+    text-decoration: none;
+    text-orientation: upright;
+    top: 40%;
+    left: 110%;
+    transform: translate(-50%, -50%);
+    writing-mode: vertical-rl;
+    z-index: 2;
+}
+
+#chartMortuaryTablet {
+    color: rgb(127, 127,127);
+    font-family: serif;
+    font-size: 85vw;
+    font-weight: bold;
+    position: fixed;
+    text-decoration: none;
+    text-orientation: upright;
+    top: 40%;
+    left: -10%;
+    transform: translate(-50%, -50%);
+    writing-mode: vertical-rl;
+    z-index: 2;
+}
+
+#annoDominiTextPosition,
+#name1TextPosition,
+#name2TextPosition,
+#dateTextPosition {
+    color: white;
+    font-family: serif;
+    font-size: 5.65vw;
+    font-weight: bold;
+    position: fixed;
+    text-orientation: upright;
+    top: 35%;
+    transform: translate(-50%, -50%);
+    writing-mode: vertical-rl;
+    z-index: 2;
+}
+
+#annoDominiTextPosition {
+    left: 60%;
+}
+
+#name1TextPosition {
+    left: 50%;
+}
+
+#name2TextPosition {
+    left: 50%;
+}
+
+#dateTextPosition {
+    left: 40%;
+}
+
+#ageTextPosition {
+    color: white;
+    font-family: serif;
+    font-size: 5.65vw;
+    font-weight: bold;
+    position: fixed;
+    text-orientation: upright;
+    top: 45%;
+    left: 40%;
+    transform: translate(-50%, -50%);
+    writing-mode: vertical-rl;
+    z-index: 2;
+}
+
+
+
+#mortuaryTablet {
+    aspect-ratio: 283 / 400;
+    max-width: 100vw;
+    max-height: 100vh;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(1.15);
+    width: 100vw;
+    height: calc(400 / 283 * 100vw);
+    z-index: 1;
+}
+@media (min-aspect-ratio: 283 / 400) {
+    #mortuaryTabletPosition,
+    #mortuaryTablet {
+        width: calc(283 / 400 * 100vh);
+        height: 100vh;
+    }
+
+    #backMortuaryTablet,
+    #chartMortuaryTablet {
+        font-size: 60vh;
+    }
+
+    #annoDominiTextPosition,
+    #name1TextPosition,
+    #name2TextPosition,
+    #dateTextPosition,
+    #ageTextPosition {
+        font-size: 4vh;
+    }
+}
