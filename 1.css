@@ -102,9 +102,9 @@
     position: fixed;
     text-decoration: none;
     text-orientation: upright;
-    top: 40%;
-    left: 57%;
-    transform: scale(0.5, 1) translate(-50%, -50%);
+    top: 50%;
+    left: 97%;
+    transform: scale(1, 1.7) translate(-50%, -50%);
     writing-mode: vertical-rl;
     z-index: 2;
 }
@@ -117,9 +117,9 @@
     position: fixed;
     text-decoration: none;
     text-orientation: upright;
-    top: 40%;
-    left: -25%;
-    transform: scale(0.5, 1) translate(-50%, -50%);
+    top: 50%;
+    left: 4%;
+    transform: scale(1, 1.7) translate(-50%, -50%);
     writing-mode: vertical-rl;
     z-index: 2;
 }
@@ -193,7 +193,7 @@
 
     #backMortuaryTablet,
     #chartMortuaryTablet {
-        font-size: 60vh;
+        font-size: 40vh;
     }
 
     #annoDominiTextPosition,
