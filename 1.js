@@ -1,22 +1,87 @@
 document.body.innerHTML = `
+<div id="background" style="position: absolute; top: 0%; left: 0%;">
+
+<div id="backgroundColor">
+<div id="titleFade" style="opacity: 0.0;">
+<div id="titleText">ようこそ、想いを手のひらに</div>
+</div>
+</div>
+
+<div id="guideSetting">
+<div style="display: flex;">
+<a href="#" id="addDead" onclick="registrationSetting()">+</a>
+<div id="guideText1">名前登録</div>
+</div>
+</div>
+
+</div>
+`;
+
+const backgroundColor = document.getElementById('backgroundColor');
+const titleFade = document.getElementById('titleFade');
+
+let fade = 0;
+
+let fadeInTick = setInterval(() => {
+    fade = fade + 0.01;
+    titleFade.style.opacity = fade;
+    if (fade >= 1.0) {
+        clearInterval(fadeInTick);
+        setTimeout(() => {
+            let fadeOutTick = setInterval(() => {
+                fade = fade - 0.01;
+                titleFade.style.opacity = fade;
+                backgroundColor.style.opacity = fade;
+                if (fade <= 0.0) {
+                    clearInterval(fadeOutTick);
+                    document.getElementById('backgroundColor').remove();
+                }
+            }, 20);
+        }, 2000);
+    }
+}, 20);
+
+
+let selectCount = 1;
+
+let JCSelect = null;
+let JCText = null;
+let lastName1 = null;
+let fastName1 = null;
+let monthText = null;
+let dayText = null;
+
+let lastName2 = null;
+let fastName2 = null;
+let ageAtDeath = null;
+let ageText = null;
+
+let sect = null;
+
+
+function registrationSetting() {
+    document.body.style.overflow = 'auto';
+
+    document.body.innerHTML = `
 <div id="setting">
 
-<div style="display: flex; justify-content: center;">
+<!--<div style="display: flex; justify-content: center;">
 <a href="#" id="removeSelect" onclick="removeSelect()">◁</a>
 <div id="sect">手元教養(無宗派)</div>
 <a href="#" id="addSelect" onclick="addSelect()">▷</a>
 </div>
 
-<div style="font-size: calc(2vw + 2vh); font-weight: bold;">　</div>
+<div style="font-size: calc(2vw + 2vh); font-weight: bold;">　</div>-->
 
-<div style="font-size: calc(2vw + 2vh); font-weight: bold;">法名</div>
+<div style="font-size: calc(2vw + 2vh); font-weight: bold;">戒名</div>
+<div style="font-size: calc(1vw + 1vh); font-weight: bold;">※戒名の入力が無い際は俗名を表示させます</div>
 <div style="display: flex; justify-content: center;">
 <input id="lastName1" placeholder="姓" type="text">
 <div style="width: calc(2vw + 2vh);"></div>
 <input id="fastName1" placeholder="名" type="text">
 </div>
 
-<div style="font-size: calc(2vw + 2vh); font-weight: bold;">俗名</div>
+<div style="font-size: calc(2vw + 2vh); font-weight: bold;">名前(俗名)</div>
 <div style="display: flex; justify-content: center;">
 <input id="lastName2" placeholder="姓" type="text">
 <div style="width: calc(2vw + 2vh);"></div>
@@ -47,7 +112,10 @@ document.body.innerHTML = `
 </div>
 
 <div style="display: flex; justify-content: center;">
-<div id="ageAtDeath">享年</div>
+<select id="ageAtDeath">
+<option>享年</option>
+<option>行年</option>
+</select>
 <input id="ageText" placeholder="漢数字" type="text">
 <div id="age">歳</div>
 </div>
@@ -62,20 +130,22 @@ document.body.innerHTML = `
 </div>
 `;
 
-let selectCount = 1;
+    selectCount = 1;
 
-let JCSelect = document.getElementById('JCSelect');
-let JCText = document.getElementById('JCText');
-let lastName1 = document.getElementById('lastName1');
-let fastName1 = document.getElementById('fastName1');
-let monthText = document.getElementById('monthText');
-let dayText = document.getElementById('dayText');
+    JCSelect = document.getElementById('JCSelect');
+    JCText = document.getElementById('JCText');
+    lastName1 = document.getElementById('lastName1');
+    fastName1 = document.getElementById('fastName1');
+    monthText = document.getElementById('monthText');
+    dayText = document.getElementById('dayText');
 
-let lastName2 = document.getElementById('lastName2');
-let fastName2 = document.getElementById('fastName2');
-let ageText = document.getElementById('ageText');
+    lastName2 = document.getElementById('lastName2');
+    fastName2 = document.getElementById('fastName2');
+    ageAtDeath = document.getElementById('ageAtDeath');
+    ageText = document.getElementById('ageText');
 
-const sect = document.getElementById('sect');
+    sect = document.getElementById('sect');
+}
 
 function removeSelect() {
     selectCount--;
@@ -126,7 +196,7 @@ function chartSettingSet() {
 
     <img id="mortuaryTablet" src="Picture/1.png">
     
-    <a href="#" id="backMortuaryTablet" onclick="backSettingSet()">表</a>
+    <a href="#" id="backMortuaryTablet" onclick="backSettingSet()">裏側を見る</a>
 
     <div id="annoDominiTextPosition" style="display: flex;">
     <div id="JCSelectOrientation">${JCSelect.value}</div>
@@ -169,7 +239,7 @@ function backSettingSet() {
 
     <img id="mortuaryTablet" src="Picture/1.png">
     
-    <a href="#" id="chartMortuaryTablet" onclick="chartSettingSet()">裏</a>
+    <a href="#" id="chartMortuaryTablet" onclick="chartSettingSet()">表側を見る</a>
 
     <div id="name2TextPosition" style="display: flex;">
     <div>俗名</div>
@@ -180,7 +250,7 @@ function backSettingSet() {
     </div>
 
     <div id="ageTextPosition" style="display: flex;">
-    <div>享年</div>
+    <div id="ageAtDeathOrientation">${ageAtDeath.value}</div>
     <div id="ageTextOrientation">${ageText.value}</div>
     <div>歳</div>
     </div>
