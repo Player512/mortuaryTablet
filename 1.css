@@ -4,6 +4,20 @@ body {
     user-select: none;
 }
 
+#background {
+    position: absolute;
+    top: 0%;
+    left: 0%;
+}
+
+#version {
+    bottom: 0;
+    left: 0%;
+    color: black;
+    font-size: calc(1vw + 1vh);
+    position: fixed;
+}
+
 #backgroundColor {
     background-color: black;
     position: fixed;
@@ -96,16 +110,19 @@ body {
     transform: translate(-50%, 0%);
 }
 
-#lastName1,
-#fastName1,
-#lastName2,
-#fastName2 {
+#dharmaName,
+#lastName,
+#fastName {
     border: none;
     border-bottom: calc(0.15vw + 0.15vh) solid black;
     font-size: calc(2vw + 2vh);
     font-weight: bold;
     outline: none;
     width: calc(12vw + 12vh);
+}
+
+#dharmaName {
+    width: calc(23vw + 23vh);;
 }
 
 #JCSelect,
@@ -137,7 +154,7 @@ body {
 #ageAtDeath,
 #ageText,
 #age {
-    width: calc(10vw + 10vh);
+    width: calc(8vw + 8vh);
 }
 
 #mortuaryTabletPosition {

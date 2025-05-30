@@ -1,16 +1,17 @@
 document.body.innerHTML = `
-<div id="background" style="position: absolute; top: 0%; left: 0%;">
-
-<div id="backgroundColor">
-<div id="titleFade" style="opacity: 0.0;">
-<div id="titleText">ようこそ、想いを手のひらに</div>
-</div>
-</div>
+<div id="background">
+<div id="version" style="position: flex;">v0.03</div>
 
 <div id="guideSetting">
 <div style="display: flex;">
 <a href="#" id="addDead" onclick="registrationSetting()">+</a>
 <div id="guideText1">名前登録</div>
+</div>
+</div>
+
+<div id="backgroundColor">
+<div id="titleFade" style="opacity: 0.0;">
+<div id="titleText">ようこそ、想いを手のひらに</div>
 </div>
 </div>
 
@@ -46,13 +47,12 @@ let selectCount = 1;
 
 let JCSelect = null;
 let JCText = null;
-let lastName1 = null;
-let fastName1 = null;
+let dharmaName = null;
 let monthText = null;
 let dayText = null;
 
-let lastName2 = null;
-let fastName2 = null;
+let lastName = null;
+let fastName = null;
 let ageAtDeath = null;
 let ageText = null;
 
@@ -76,16 +76,14 @@ function registrationSetting() {
 <div style="font-size: calc(2vw + 2vh); font-weight: bold;">戒名</div>
 <div style="font-size: calc(1vw + 1vh); font-weight: bold;">※戒名の入力が無い際は俗名を表示させます</div>
 <div style="display: flex; justify-content: center;">
-<input id="lastName1" placeholder="姓" type="text">
-<div style="width: calc(2vw + 2vh);"></div>
-<input id="fastName1" placeholder="名" type="text">
+<input id="dharmaName" placeholder="入力" type="text">
 </div>
 
 <div style="font-size: calc(2vw + 2vh); font-weight: bold;">名前(俗名)</div>
 <div style="display: flex; justify-content: center;">
-<input id="lastName2" placeholder="姓" type="text">
+<input id="lastName" placeholder="姓" type="text">
 <div style="width: calc(2vw + 2vh);"></div>
-<input id="fastName2" placeholder="名" type="text">
+<input id="fastName" placeholder="名" type="text">
 </div>
 
 <div style="font-size: calc(2vw + 2vh); font-weight: bold;">　</div>
@@ -134,13 +132,12 @@ function registrationSetting() {
 
     JCSelect = document.getElementById('JCSelect');
     JCText = document.getElementById('JCText');
-    lastName1 = document.getElementById('lastName1');
-    fastName1 = document.getElementById('fastName1');
+    dharmaName = document.getElementById('dharmaName');
     monthText = document.getElementById('monthText');
     dayText = document.getElementById('dayText');
 
-    lastName2 = document.getElementById('lastName2');
-    fastName2 = document.getElementById('fastName2');
+    lastName = document.getElementById('lastName');
+    fastName = document.getElementById('fastName');
     ageAtDeath = document.getElementById('ageAtDeath');
     ageText = document.getElementById('ageText');
 
@@ -190,6 +187,10 @@ function selectSect() {
 }
 
 function chartSettingSet() {
+    if (dharmaName.value === "") {
+        dharmaName.value = lastName.value + '　'　+ fastName.value;
+    }
+
     document.body.innerHTML = `
     <div id="mortuaryTabletPosition">
 
@@ -205,11 +206,7 @@ function chartSettingSet() {
     </div>
 
     <div id="name1TextPosition" style="display: flex;">
-    <div>法名</div>
-    <div>　</div>
-    <div id="lastName1Orientation">${lastName1.value}</div>
-    <div>　</div>
-    <div id="fastName1Orientation">${fastName1.value}</div>
+    <div id="dharmaNameOrientation">${dharmaName.value}</div>
     </div>
 
     <div id="dateTextPosition" style="display: flex;">
@@ -244,9 +241,9 @@ function backSettingSet() {
     <div id="name2TextPosition" style="display: flex;">
     <div>俗名</div>
     <div>　</div>
-    <div id="lastName2Orientation">${lastName2.value}</div>
+    <div id="lastNameOrientation">${lastName.value}</div>
     <div>　</div>
-    <div id="fastName2Orientation">${fastName2.value}</div>
+    <div id="fastNameOrientation">${fastName.value}</div>
     </div>
 
     <div id="ageTextPosition" style="display: flex;">
