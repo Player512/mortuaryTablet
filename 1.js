@@ -235,23 +235,12 @@ function chartSettingSet() {
 
     let mortuaryTabletChangeText = document.getElementById('mortuaryTabletChangeText');
 
-    if (mortuaryTabletChangeCount === 1) {
-        mortuaryTabletChangeText.innerText = 'デフォルト';
-    } else if (mortuaryTabletChangeCount === 2) {
-        mortuaryTabletChangeText.innerText = '木材';
-    } else if (mortuaryTabletChangeCount === 3) {
-        mortuaryTabletChangeText.innerText = 'ガラス';
-    }
-
     document.body.style.overflow = 'hidden';
+    document.getElementById('mortuaryTablet').style.transform = 'scale(-1, 1)';
 
     document.addEventListener('touchmove', handleTouchMove, { passive: false });
 
     mortuaryTabletChange();
-}
-
-function handleTouchMove(e) {
-    e.preventDefault();
 }
 
 function backSettingSet() {
@@ -288,18 +277,6 @@ function backSettingSet() {
 
     </div>
     `;
-
-    if (mortuaryTabletChangeCount === 1) {
-        mortuaryTabletChangeText.innerText = 'デフォルト';
-    } else if (mortuaryTabletChangeCount === 2) {
-        mortuaryTabletChangeText.innerText = '木材';
-    } else if (mortuaryTabletChangeCount === 3) {
-        mortuaryTabletChangeText.innerText = 'ガラス';
-    }
-
-    document.body.style.overflow = 'hidden';
-
-    document.addEventListener('touchmove', handleTouchMove, { passive: false });
 
     mortuaryTabletChange();
 }
