@@ -1,3 +1,23 @@
+let selectCount = 1;
+
+let JCSelect = null;
+let JCText = null;
+let dharmaName = null;
+let monthText = null;
+let dayText = null;
+
+let lastName = null;
+let fastName = null;
+let ageAtDeath = null;
+let ageText = null;
+
+let sect = null;
+
+let mortuaryTabletChangeCount = 1;
+let twoSidesChange = 1;
+let mortuaryTabletChangeText = null;
+
+
 document.body.innerHTML = `
 <div id="background">
 <div id="version" style="position: flex;">v0.05</div>
@@ -42,24 +62,6 @@ let fadeInTick = setInterval(() => {
         }, 2000);
     }
 }, 20);
-
-
-let selectCount = 1;
-
-let JCSelect = null;
-let JCText = null;
-let dharmaName = null;
-let monthText = null;
-let dayText = null;
-
-let lastName = null;
-let fastName = null;
-let ageAtDeath = null;
-let ageText = null;
-
-let sect = null;
-
-let mortuaryTabletChangeCount = 1;
 
 
 function registrationSetting() {
@@ -147,52 +149,9 @@ function registrationSetting() {
     sect = document.getElementById('sect');
 }
 
-function removeSelect() {
-    selectCount--;
-    if (selectCount === 0) {
-        selectCount = 10;
-    }
-
-    selectSect();
-}
-
-function addSelect() {
-    selectCount++;
-    if (selectCount === 11) {
-        selectCount = 1;
-    }
-
-    selectSect();
-}
-
-function selectSect() {
-    if (selectCount === 1) {
-        sect.innerHTML = "手元教養(無宗派)";
-    } else if (selectCount === 2) {
-        sect.innerHTML = "浄土真宗本願寺派";
-    } else if (selectCount === 3) {
-        sect.innerHTML = "浄土真宗大谷派";
-    } else if (selectCount === 4) {
-        sect.innerHTML = "真言宗";
-    } else if (selectCount === 5) {
-        sect.innerHTML = "日蓮宗";
-    } else if (selectCount === 6) {
-        sect.innerHTML = "天台宗";
-    } else if (selectCount === 7) {
-        sect.innerHTML = "臨済宗";
-    } else if (selectCount === 8) {
-        sect.innerHTML = "曹洞宗";
-    } else if (selectCount === 9) {
-        sect.innerHTML = "浄土宗";
-    } else if (selectCount === 10) {
-        sect.innerHTML = "神道";
-    }
-}
-
-let changeTest = 1;
 
 function chartSettingSet() {
-    changeTest = 1;
+    twoSidesChange = 1;
 
     if (dharmaName.value === "") {
         dharmaName.value = lastName.value + '　' + fastName.value;
@@ -233,7 +192,7 @@ function chartSettingSet() {
     </div>
     `;
 
-    let mortuaryTabletChangeText = document.getElementById('mortuaryTabletChangeText');
+    mortuaryTabletChangeText = document.getElementById('mortuaryTabletChangeText');
 
     document.body.style.overflow = 'hidden';
     document.getElementById('mortuaryTablet').style.transform = 'scale(-1, 1)';
@@ -244,7 +203,7 @@ function chartSettingSet() {
 }
 
 function backSettingSet() {
-    changeTest = 2;
+    twoSidesChange = 2;
 
     document.body.innerHTML = `
     <div id="mortuaryTabletPosition">
@@ -319,61 +278,61 @@ function mortuaryTabletChange() {
     if (mortuaryTabletChangeCount === 1) {
         mortuaryTabletChangeText.innerText = 'デフォルト';
 
-        if (changeTest === 1) {
+        if (twoSidesChange === 1) {
             annoDominiTextPosition.style.color = defaultColor;
             name1TextPosition.style.color = defaultColor;
             dateTextPosition.style.color = defaultColor;
-        } else if (changeTest === 2) {
+        } else if (twoSidesChange === 2) {
             name2TextPosition.style.color = defaultColor;
             ageTextPosition.style.color = defaultColor;
         }
     } else if (mortuaryTabletChangeCount === 2) {
         mortuaryTabletChangeText.innerText = '木材';
 
-        if (changeTest === 1) {
+        if (twoSidesChange === 1) {
             annoDominiTextPosition.style.color = woodColor;
             name1TextPosition.style.color = woodColor;
             dateTextPosition.style.color = woodColor;
-        } else if (changeTest === 2) {
+        } else if (twoSidesChange === 2) {
             name2TextPosition.style.color = woodColor;
             ageTextPosition.style.color = woodColor;
         }
     } else if (mortuaryTabletChangeCount === 3) {
         mortuaryTabletChangeText.innerText = 'ガラス';
 
-        if (changeTest === 1) {
+        if (twoSidesChange === 1) {
             annoDominiTextPosition.style.color = glassColor;
             name1TextPosition.style.color = glassColor;
             dateTextPosition.style.color = glassColor;
-        } else if (changeTest === 2) {
+        } else if (twoSidesChange === 2) {
             name2TextPosition.style.color = glassColor;
             ageTextPosition.style.color = glassColor;
         }
     }
 
     if (mortuaryTabletChangeCount >= 1 && mortuaryTabletChangeCount <= 2) {
-        if (changeTest === 1) {
+        if (twoSidesChange === 1) {
             annoDominiTextPosition.style.top = '38%';
             name1TextPosition.style.top = '38%';
             dateTextPosition.style.top = '38%';
 
             annoDominiTextPosition.style.left = '62%';
             dateTextPosition.style.left = '38%';
-        } else if (changeTest === 2) {
+        } else if (twoSidesChange === 2) {
             name2TextPosition.style.top = '38%';
             ageTextPosition.style.top = '48%';
 
             ageTextPosition.style.left = '38%';
         }
     } else if (mortuaryTabletChangeCount === 3) {
-        if (changeTest === 1) {
+        if (twoSidesChange === 1) {
             annoDominiTextPosition.style.top = '45%';
             name1TextPosition.style.top = '45%';
             dateTextPosition.style.top = '45%';
 
             annoDominiTextPosition.style.left = '66%';
             dateTextPosition.style.left = '34%';
-        } else if (changeTest === 2) {
+        } else if (twoSidesChange === 2) {
             name2TextPosition.style.top = '45%';
             ageTextPosition.style.top = '55%';
 
