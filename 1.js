@@ -285,7 +285,7 @@ function mortuaryTabletChange() {
             ageTextPosition.style.color = defaultColor;
         }
     } else if (mortuaryTabletChangeCount === 2) {
-        mortuaryTabletChangeText.innerText = '木材';
+        mortuaryTabletChangeText.innerText = 'モダン';
 
         if (twoSidesChange === 1) {
             annoDominiTextPosition.style.color = woodColor;
