@@ -195,7 +195,6 @@ function chartSettingSet() {
     mortuaryTabletChangeText = document.getElementById('mortuaryTabletChangeText');
 
     document.body.style.overflow = 'hidden';
-    document.getElementById('mortuaryTablet').style.transform = 'scale(-1, 1)';
 
     document.addEventListener('touchmove', handleTouchMove, { passive: false });
 
