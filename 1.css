@@ -206,13 +206,13 @@ body {
 #chartMortuaryTablet {
     color: rgb(255, 255, 255);
     font-family: serif;
-    font-size: calc(1024 / 513 * 10vw);
+    font-size: calc(1024 / 513 * 5vw);
     font-weight: bold;
     position: fixed;
     text-decoration: none;
     text-orientation: upright;
     top: 36%;
-    left: 94%;
+    left: 89%;
     transform: translate(-50%, -50%);
     white-space: nowrap;
     writing-mode: vertical-rl;
@@ -224,13 +224,13 @@ body {
 #mortuaryTabletRemoveChange {
     color: rgb(255, 255, 255);
     font-family: serif;
-    font-size: calc(1024 / 513 * 7vw);
+    font-size: calc(1024 / 513 * 5vw);
     font-weight: bold;
     position: fixed;
     text-decoration: none;
     text-orientation: upright;
     top: 36%;
-    left: 6%;
+    left: 11%;
     transform: translate(-50%, -50%);
     white-space: nowrap;
     writing-mode: vertical-rl;
@@ -238,11 +238,11 @@ body {
 }
 
 #mortuaryTabletAddChange {
-    top: 14%;
+    top: 18%;
 }
 
 #mortuaryTabletRemoveChange {
-    top: 58%;
+    top: 54%;
 }
 
 #annoDominiTextPosition,
@@ -252,7 +252,7 @@ body {
 #ageTextPosition {
     color: rgb(191, 191, 143);
     font-family: serif;
-    font-size: calc(1024 / 513 * 4vw);
+    font-size: calc(1024 / 513 * 3.5vw);
     font-weight: bold;
     position: fixed;
     text-orientation: upright;
@@ -264,16 +264,16 @@ body {
 }
 
 #annoDominiTextPosition {
-    left: 62%;
+    left: 60%;
 }
 
 #dateTextPosition {
-    left: 38%;
+    left: 40%;
 }
 
 #ageTextPosition {
     top: 48%;
-    left: 38%;
+    left: 40%;
 }
 
 
@@ -285,7 +285,7 @@ body {
     position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%) scale(1.15);
+    transform: translate(-50%, -50%);
     width: 100vw;
     height: calc(1024 / 513 * 100vw);
     z-index: 1;
@@ -300,14 +300,11 @@ body {
     }
 
     #backMortuaryTablet,
-    #chartMortuaryTablet{
-        font-size: 10vh;
-    }
-
+    #chartMortuaryTablet,
     #mortuaryTabletAddChange,
     #mortuaryTabletChangeText,
     #mortuaryTabletRemoveChange {
-        font-size: 7vh;
+        font-size: 5vh;
     }
 
     #annoDominiTextPosition,
@@ -315,6 +312,6 @@ body {
     #name2TextPosition,
     #dateTextPosition,
     #ageTextPosition {
-        font-size: 4vh;
+        font-size: 3.5vh;
     }
 }

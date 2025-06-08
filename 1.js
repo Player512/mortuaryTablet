@@ -15,7 +15,6 @@ let sect = null;
 
 let mortuaryTabletChangeCount = 1;
 let twoSidesChange = 1;
-let mortuaryTabletChangeText = null;
 
 
 document.body.innerHTML = `
@@ -192,7 +191,7 @@ function chartSettingSet() {
     </div>
     `;
 
-    mortuaryTabletChangeText = document.getElementById('mortuaryTabletChangeText');
+    let mortuaryTabletChangeText = document.getElementById('mortuaryTabletChangeText');
 
     document.body.style.overflow = 'hidden';
 
@@ -315,13 +314,13 @@ function mortuaryTabletChange() {
             name1TextPosition.style.top = '38%';
             dateTextPosition.style.top = '38%';
 
-            annoDominiTextPosition.style.left = '62%';
-            dateTextPosition.style.left = '38%';
+            annoDominiTextPosition.style.left = '60%';
+            dateTextPosition.style.left = '40%';
         } else if (twoSidesChange === 2) {
             name2TextPosition.style.top = '38%';
             ageTextPosition.style.top = '48%';
 
-            ageTextPosition.style.left = '38%';
+            ageTextPosition.style.left = '40%';
         }
     } else if (mortuaryTabletChangeCount === 3) {
         if (twoSidesChange === 1) {
@@ -329,13 +328,13 @@ function mortuaryTabletChange() {
             name1TextPosition.style.top = '45%';
             dateTextPosition.style.top = '45%';
 
-            annoDominiTextPosition.style.left = '66%';
-            dateTextPosition.style.left = '34%';
+            annoDominiTextPosition.style.left = '64%';
+            dateTextPosition.style.left = '36%';
         } else if (twoSidesChange === 2) {
             name2TextPosition.style.top = '45%';
             ageTextPosition.style.top = '55%';
 
-            ageTextPosition.style.left = '34%';
+            ageTextPosition.style.left = '36%';
         }
     }
     document.getElementById('mortuaryTablet').remove();
