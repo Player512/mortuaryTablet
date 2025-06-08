@@ -238,11 +238,11 @@ body {
 }
 
 #mortuaryTabletAddChange {
-    top: 25%;
+    top: 21%;
 }
 
 #mortuaryTabletRemoveChange {
-    top: 47%;
+    top: 51%;
 }
 
 #annoDominiTextPosition,
@@ -256,24 +256,10 @@ body {
     font-weight: bold;
     position: fixed;
     text-orientation: upright;
-    top: 38%;
     left: 50%;
     transform: translate(-50%, -50%);
     writing-mode: vertical-rl;
     z-index: 2;
-}
-
-#annoDominiTextPosition {
-    left: 60%;
-}
-
-#dateTextPosition {
-    left: 40%;
-}
-
-#ageTextPosition {
-    top: 48%;
-    left: 40%;
 }
 
 

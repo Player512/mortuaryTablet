@@ -166,7 +166,7 @@ function chartSettingSet() {
     
     <div id="mortuaryTabletChange" style="display: flex;">
     <a href="#" id="mortuaryTabletAddChange" onclick="mortuaryTabletAddChange()">△</a>
-    <div id="mortuaryTabletChangeText">塗り</div>
+    <div id="mortuaryTabletChangeText"></div>
     <a href="#" id="mortuaryTabletRemoveChange" onclick="mortuaryTabletRemoveChange()">▽</a>
     </div>
 
@@ -213,7 +213,7 @@ function backSettingSet() {
 
     <div id="mortuaryTabletChange">
     <a href="#" id="mortuaryTabletAddChange" onclick="mortuaryTabletAddChange()">△</a>
-    <div id="mortuaryTabletChangeText">塗り</div>
+    <div id="mortuaryTabletChangeText"></div>
     <a href="#" id="mortuaryTabletRemoveChange" onclick="mortuaryTabletRemoveChange()">▽</a>
     </div>
 
@@ -296,7 +296,7 @@ function mortuaryTabletChange() {
             ageTextPosition.style.color = woodColor;
         }
     } else if (mortuaryTabletChangeCount === 3) {
-        mortuaryTabletChangeText.innerText = 'ガラス';
+        mortuaryTabletChangeText.innerText = 'クリスタル';
 
         if (twoSidesChange === 1) {
             annoDominiTextPosition.style.color = glassColor;
@@ -318,7 +318,7 @@ function mortuaryTabletChange() {
             dateTextPosition.style.left = '40%';
         } else if (twoSidesChange === 2) {
             name2TextPosition.style.top = '40%';
-            ageTextPosition.style.top = '50%';
+            ageTextPosition.style.top = '48%';
 
             ageTextPosition.style.left = '40%';
         }
@@ -332,7 +332,7 @@ function mortuaryTabletChange() {
             dateTextPosition.style.left = '36%';
         } else if (twoSidesChange === 2) {
             name2TextPosition.style.top = '47%';
-            ageTextPosition.style.top = '57%';
+            ageTextPosition.style.top = '55%';
 
             ageTextPosition.style.left = '36%';
         }
