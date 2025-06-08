@@ -1,6 +1,6 @@
 document.body.innerHTML = `
 <div id="background">
-<div id="version" style="position: flex;">v0.03</div>
+<div id="version" style="position: flex;">v0.05</div>
 
 <div id="guideSetting">
 <div style="display: flex;">
@@ -12,6 +12,7 @@ document.body.innerHTML = `
 <div id="backgroundColor">
 <div id="titleFade" style="opacity: 0.0;">
 <div id="titleText">ようこそ、想いを手のひらに</div>
+<img id="icon" src="Picture/アイコン1.png">
 </div>
 </div>
 
@@ -57,6 +58,8 @@ let ageAtDeath = null;
 let ageText = null;
 
 let sect = null;
+
+let mortuaryTabletChangeCount = 1;
 
 
 function registrationSetting() {
@@ -186,18 +189,28 @@ function selectSect() {
     }
 }
 
+let changeTest = 1;
+
 function chartSettingSet() {
+    changeTest = 1;
+
     if (dharmaName.value === "") {
-        dharmaName.value = lastName.value + '　'　+ fastName.value;
+        dharmaName.value = lastName.value + '　' + fastName.value;
     }
 
     document.body.innerHTML = `
     <div id="mortuaryTabletPosition">
 
 
-    <img id="mortuaryTablet" src="Picture/1.png">
+    <img id="mortuaryTablet" src="Picture/位牌${mortuaryTabletChangeCount}.png">
     
     <a href="#" id="backMortuaryTablet" onclick="backSettingSet()">裏側を見る</a>
+    
+    <div id="mortuaryTabletChange" style="display: flex;">
+    <a href="#" id="mortuaryTabletAddChange" onclick="mortuaryTabletAddChange()">△</a>
+    <div id="mortuaryTabletChangeText">デフォルト</div>
+    <a href="#" id="mortuaryTabletRemoveChange" onclick="mortuaryTabletRemoveChange()">▽</a>
+    </div>
 
     <div id="annoDominiTextPosition" style="display: flex;">
     <div id="JCSelectOrientation">${JCSelect.value}</div>
@@ -220,9 +233,21 @@ function chartSettingSet() {
     </div>
     `;
 
+    let mortuaryTabletChangeText = document.getElementById('mortuaryTabletChangeText');
+
+    if (mortuaryTabletChangeCount === 1) {
+        mortuaryTabletChangeText.innerText = 'デフォルト';
+    } else if (mortuaryTabletChangeCount === 2) {
+        mortuaryTabletChangeText.innerText = '木材';
+    } else if (mortuaryTabletChangeCount === 3) {
+        mortuaryTabletChangeText.innerText = 'ガラス';
+    }
+
     document.body.style.overflow = 'hidden';
 
     document.addEventListener('touchmove', handleTouchMove, { passive: false });
+
+    mortuaryTabletChange();
 }
 
 function handleTouchMove(e) {
@@ -230,13 +255,21 @@ function handleTouchMove(e) {
 }
 
 function backSettingSet() {
+    changeTest = 2;
+
     document.body.innerHTML = `
     <div id="mortuaryTabletPosition">
 
 
-    <img id="mortuaryTablet" src="Picture/1.png">
-    
+    <img id="mortuaryTablet" src="Picture/位牌${mortuaryTabletChangeCount}.png">
+
     <a href="#" id="chartMortuaryTablet" onclick="chartSettingSet()">表側を見る</a>
+
+    <div id="mortuaryTabletChange">
+    <a href="#" id="mortuaryTabletAddChange" onclick="mortuaryTabletAddChange()">△</a>
+    <div id="mortuaryTabletChangeText">デフォルト</div>
+    <a href="#" id="mortuaryTabletRemoveChange" onclick="mortuaryTabletRemoveChange()">▽</a>
+    </div>
 
     <div id="name2TextPosition" style="display: flex;">
     <div>俗名</div>
@@ -256,11 +289,120 @@ function backSettingSet() {
     </div>
     `;
 
+    if (mortuaryTabletChangeCount === 1) {
+        mortuaryTabletChangeText.innerText = 'デフォルト';
+    } else if (mortuaryTabletChangeCount === 2) {
+        mortuaryTabletChangeText.innerText = '木材';
+    } else if (mortuaryTabletChangeCount === 3) {
+        mortuaryTabletChangeText.innerText = 'ガラス';
+    }
+
     document.body.style.overflow = 'hidden';
 
     document.addEventListener('touchmove', handleTouchMove, { passive: false });
+
+    mortuaryTabletChange();
 }
 
 function handleTouchMove(e) {
     e.preventDefault();
+}
+
+function mortuaryTabletAddChange() {
+    mortuaryTabletChangeCount++;
+
+    if (mortuaryTabletChangeCount === 4) {
+        mortuaryTabletChangeCount = 1;
+    }
+
+    mortuaryTabletChange();
+}
+
+function mortuaryTabletRemoveChange() {
+    mortuaryTabletChangeCount--;
+
+    if (mortuaryTabletChangeCount === 0) {
+        mortuaryTabletChangeCount = 3;
+    }
+
+    mortuaryTabletChange();
+}
+
+function mortuaryTabletChange() {
+    const annoDominiTextPosition = document.getElementById('annoDominiTextPosition');
+    const name1TextPosition = document.getElementById('name1TextPosition');
+    const name2TextPosition = document.getElementById('name2TextPosition');
+    const dateTextPosition = document.getElementById('dateTextPosition');
+    const ageTextPosition = document.getElementById('ageTextPosition');
+
+    let defaultColor = 'rgb(191, 191, 143)';
+    let woodColor = 'rgb(55, 15, 15)'
+    let glassColor = 'rgba(255, 255, 255, 0.75)';
+
+    if (mortuaryTabletChangeCount === 1) {
+        mortuaryTabletChangeText.innerText = 'デフォルト';
+
+        if (changeTest === 1) {
+            annoDominiTextPosition.style.color = defaultColor;
+            name1TextPosition.style.color = defaultColor;
+            dateTextPosition.style.color = defaultColor;
+        } else if (changeTest === 2) {
+            name2TextPosition.style.color = defaultColor;
+            ageTextPosition.style.color = defaultColor;
+        }
+    } else if (mortuaryTabletChangeCount === 2) {
+        mortuaryTabletChangeText.innerText = '木材';
+
+        if (changeTest === 1) {
+            annoDominiTextPosition.style.color = woodColor;
+            name1TextPosition.style.color = woodColor;
+            dateTextPosition.style.color = woodColor;
+        } else if (changeTest === 2) {
+            name2TextPosition.style.color = woodColor;
+            ageTextPosition.style.color = woodColor;
+        }
+    } else if (mortuaryTabletChangeCount === 3) {
+        mortuaryTabletChangeText.innerText = 'ガラス';
+
+        if (changeTest === 1) {
+            annoDominiTextPosition.style.color = glassColor;
+            name1TextPosition.style.color = glassColor;
+            dateTextPosition.style.color = glassColor;
+        } else if (changeTest === 2) {
+            name2TextPosition.style.color = glassColor;
+            ageTextPosition.style.color = glassColor;
+        }
+    }
+
+    if (mortuaryTabletChangeCount >= 1 && mortuaryTabletChangeCount <= 2) {
+        if (changeTest === 1) {
+            annoDominiTextPosition.style.top = '38%';
+            name1TextPosition.style.top = '38%';
+            dateTextPosition.style.top = '38%';
+
+            annoDominiTextPosition.style.left = '62%';
+            dateTextPosition.style.left = '38%';
+        } else if (changeTest === 2) {
+            name2TextPosition.style.top = '38%';
+            ageTextPosition.style.top = '48%';
+
+            ageTextPosition.style.left = '38%';
+        }
+    } else if (mortuaryTabletChangeCount === 3) {
+        if (changeTest === 1) {
+            annoDominiTextPosition.style.top = '45%';
+            name1TextPosition.style.top = '45%';
+            dateTextPosition.style.top = '45%';
+
+            annoDominiTextPosition.style.left = '66%';
+            dateTextPosition.style.left = '34%';
+        } else if (changeTest === 2) {
+            name2TextPosition.style.top = '45%';
+            ageTextPosition.style.top = '55%';
+
+            ageTextPosition.style.left = '34%';
+        }
+    }
+    document.getElementById('mortuaryTablet').remove();
+    document.body.innerHTML += `<img id="mortuaryTablet" src="Picture/位牌${mortuaryTabletChangeCount}.png">`;
 }
