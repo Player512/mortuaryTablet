@@ -166,7 +166,7 @@ function chartSettingSet() {
     
     <div id="mortuaryTabletChange" style="display: flex;">
     <a href="#" id="mortuaryTabletAddChange" onclick="mortuaryTabletAddChange()">△</a>
-    <div id="mortuaryTabletChangeText">デフォルト</div>
+    <div id="mortuaryTabletChangeText">塗り</div>
     <a href="#" id="mortuaryTabletRemoveChange" onclick="mortuaryTabletRemoveChange()">▽</a>
     </div>
 
@@ -213,7 +213,7 @@ function backSettingSet() {
 
     <div id="mortuaryTabletChange">
     <a href="#" id="mortuaryTabletAddChange" onclick="mortuaryTabletAddChange()">△</a>
-    <div id="mortuaryTabletChangeText">デフォルト</div>
+    <div id="mortuaryTabletChangeText">塗り</div>
     <a href="#" id="mortuaryTabletRemoveChange" onclick="mortuaryTabletRemoveChange()">▽</a>
     </div>
 
@@ -274,7 +274,7 @@ function mortuaryTabletChange() {
     let glassColor = 'rgba(255, 255, 255, 0.75)';
 
     if (mortuaryTabletChangeCount === 1) {
-        mortuaryTabletChangeText.innerText = 'デフォルト';
+        mortuaryTabletChangeText.innerText = '塗り';
 
         if (twoSidesChange === 1) {
             annoDominiTextPosition.style.color = defaultColor;
@@ -310,29 +310,29 @@ function mortuaryTabletChange() {
 
     if (mortuaryTabletChangeCount >= 1 && mortuaryTabletChangeCount <= 2) {
         if (twoSidesChange === 1) {
-            annoDominiTextPosition.style.top = '38%';
-            name1TextPosition.style.top = '38%';
-            dateTextPosition.style.top = '38%';
+            annoDominiTextPosition.style.top = '40%';
+            name1TextPosition.style.top = '40%';
+            dateTextPosition.style.top = '40%';
 
             annoDominiTextPosition.style.left = '60%';
             dateTextPosition.style.left = '40%';
         } else if (twoSidesChange === 2) {
-            name2TextPosition.style.top = '38%';
-            ageTextPosition.style.top = '48%';
+            name2TextPosition.style.top = '40%';
+            ageTextPosition.style.top = '50%';
 
             ageTextPosition.style.left = '40%';
         }
     } else if (mortuaryTabletChangeCount === 3) {
         if (twoSidesChange === 1) {
-            annoDominiTextPosition.style.top = '45%';
-            name1TextPosition.style.top = '45%';
-            dateTextPosition.style.top = '45%';
+            annoDominiTextPosition.style.top = '47%';
+            name1TextPosition.style.top = '47%';
+            dateTextPosition.style.top = '47%';
 
             annoDominiTextPosition.style.left = '64%';
             dateTextPosition.style.left = '36%';
         } else if (twoSidesChange === 2) {
-            name2TextPosition.style.top = '45%';
-            ageTextPosition.style.top = '55%';
+            name2TextPosition.style.top = '47%';
+            ageTextPosition.style.top = '57%';
 
             ageTextPosition.style.left = '36%';
         }
