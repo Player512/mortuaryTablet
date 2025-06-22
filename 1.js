@@ -1,15 +1,23 @@
 let selectCount = 1;
 
-let JCSelect = null;
-let JCText = null;
 let dharmaName = null;
-let monthText = null;
-let dayText = null;
-
+let dharmaNameValue = "";
 let lastName = null;
+let lastNameValue ="";
 let fastName = null;
+let fastNameValue ="";
+let JCSelect = null;
+let JCSelectValue = 0;
+let JCText = null;
+let JCTextValue = "";
+let monthText = null;
+let monthTextValue = "";
+let dayText = null;
+let dayTextValue = "";
 let ageAtDeath = null;
+let ageAtDeathValue = 0;
 let ageText = null;
+let ageTextValue = "";
 
 let sect = null;
 
@@ -19,7 +27,7 @@ let twoSidesChange = 1;
 
 document.body.innerHTML = `
 <div id="background">
-<div id="version" style="position: flex;">v0.05</div>
+<div id="version" style="position: flex;">v0.06.1</div>
 
 <div id="guideSetting">
 <div style="display: flex;">
@@ -31,7 +39,7 @@ document.body.innerHTML = `
 <div id="backgroundColor">
 <div id="titleFade" style="opacity: 0.0;">
 <div id="titleText">ようこそ、想いを手のひらに</div>
-<img id="icon" src="Picture/アイコン1.png">
+<!--<img id="icon" src="Picture/アイコン1.png">-->
 </div>
 </div>
 
@@ -57,10 +65,10 @@ let fadeInTick = setInterval(() => {
                     clearInterval(fadeOutTick);
                     document.getElementById('backgroundColor').remove();
                 }
-            }, 20);
-        }, 2000);
+            }, 10);
+        }, 1000);
     }
-}, 20);
+}, 10);
 
 
 function registrationSetting() {
@@ -69,25 +77,27 @@ function registrationSetting() {
     document.body.innerHTML = `
 <div id="setting">
 
-<!--<div style="display: flex; justify-content: center;">
+<!--
+<div style="display: flex; justify-content: center;">
 <a href="#" id="removeSelect" onclick="removeSelect()">◁</a>
 <div id="sect">手元教養(無宗派)</div>
 <a href="#" id="addSelect" onclick="addSelect()">▷</a>
 </div>
 
-<div style="font-size: calc(2vw + 2vh); font-weight: bold;">　</div>-->
+<div style="font-size: calc(2vw + 2vh); font-weight: bold;">　</div>
+-->
 
 <div style="font-size: calc(2vw + 2vh); font-weight: bold;">戒名</div>
 <div style="font-size: calc(1vw + 1vh); font-weight: bold;">※戒名の入力が無い際は俗名を表示させます</div>
 <div style="display: flex; justify-content: center;">
-<input id="dharmaName" placeholder="入力" type="text">
+<input id="dharmaName" placeholder="入力" type="text" value=${dharmaNameValue}>
 </div>
 
 <div style="font-size: calc(2vw + 2vh); font-weight: bold;">名前(俗名)</div>
 <div style="display: flex; justify-content: center;">
-<input id="lastName" placeholder="姓" type="text">
+<input id="lastName" placeholder="姓" type="text" value=${lastNameValue}>
 <div style="width: calc(2vw + 2vh);"></div>
-<input id="fastName" placeholder="名" type="text">
+<input id="fastName" placeholder="名" type="text" value=${fastNameValue}>
 </div>
 
 <div style="font-size: calc(2vw + 2vh); font-weight: bold;">　</div>
@@ -95,21 +105,21 @@ function registrationSetting() {
 <div style="font-size: calc(2vw + 2vh); font-weight: bold;">命日</div>
 <div style="display: flex; justify-content: center;">
 <select id="JCSelect">
-<option>令和</option>
-<option>平成</option>
-<option>昭和</option>
-<option>大正</option>
-<option>明治</option>
-<option>慶応</option>
+<option id="JCSelectValue1">令和</option>
+<option id="JCSelectValue2">平成</option>
+<option id="JCSelectValue3">昭和</option>
+<option id="JCSelectValue4">大正</option>
+<option id="JCSelectValue5">明治</option>
+<option id="JCSelectValue6">慶応</option>
 </select>
-<input id="JCText" placeholder="漢数字" type="text">
+<input id="JCText" placeholder="漢数字" type="text" value=${JCTextValue}>
 <div id="year">年</div>
 </div>
 
 <div style="display: flex; justify-content: center;">
-<input id="monthText" placeholder="漢数字" type="text">
+<input id="monthText" placeholder="漢数字" type="text" value=${monthTextValue}>
 <div id="month">月</div>
-<input id="dayText" placeholder="漢数字" type="text">
+<input id="dayText" placeholder="漢数字" type="text" value=${dayTextValue}>
 <div id="day">日</div>
 </div>
 
@@ -118,7 +128,7 @@ function registrationSetting() {
 <option>享年</option>
 <option>行年</option>
 </select>
-<input id="ageText" placeholder="漢数字" type="text">
+<input id="ageText" placeholder="漢数字" type="text" value=${ageTextValue}>
 <div id="age">歳</div>
 </div>
 
@@ -134,9 +144,11 @@ function registrationSetting() {
 
     selectCount = 1;
 
+    sect = document.getElementById('sect');
+
+    dharmaName = document.getElementById('dharmaName');
     JCSelect = document.getElementById('JCSelect');
     JCText = document.getElementById('JCText');
-    dharmaName = document.getElementById('dharmaName');
     monthText = document.getElementById('monthText');
     dayText = document.getElementById('dayText');
 
@@ -145,16 +157,28 @@ function registrationSetting() {
     ageAtDeath = document.getElementById('ageAtDeath');
     ageText = document.getElementById('ageText');
 
-    sect = document.getElementById('sect');
+    JCSelect.selectedIndex = JCSelectValue;
 }
 
 
 function chartSettingSet() {
     twoSidesChange = 1;
 
-    if (dharmaName.value === "") {
+    if (lastName.value !== "" || fastName.value !== "") {
+        if (dharmaName.value === "") {
         dharmaName.value = lastName.value + '　' + fastName.value;
     }
+    }
+
+    dharmaNameValue = dharmaName.value;
+    lastNameValue = lastName.value;
+    fastNameValue = fastName.value;
+    JCSelectValue = JCSelect.selectedIndex;
+    JCTextValue = JCText.value;
+    monthTextValue = monthText.value;
+    dayTextValue = dayText.value;
+    ageAtDeathValue = ageAtDeath.selectedIndex;
+    ageTextValue = ageText.value;
 
     document.body.innerHTML = `
     <div id="mortuaryTabletPosition">
@@ -163,6 +187,8 @@ function chartSettingSet() {
     <img id="mortuaryTablet" src="Picture/位牌${mortuaryTabletChangeCount}.png">
     
     <a href="#" id="backMortuaryTablet" onclick="backSettingSet()">裏側を見る</a>
+
+    <a href="#" id="backInput" onclick="registrationSetting()"><戻る</a>
     
     <div id="mortuaryTabletChange" style="display: flex;">
     <a href="#" id="mortuaryTabletAddChange" onclick="mortuaryTabletAddChange()">△</a>
@@ -210,6 +236,8 @@ function backSettingSet() {
     <img id="mortuaryTablet" src="Picture/位牌${mortuaryTabletChangeCount}.png">
 
     <a href="#" id="chartMortuaryTablet" onclick="chartSettingSet()">表側を見る</a>
+
+    <a href="#" id="backInput" onclick="registrationSetting()"><戻る</a>
 
     <div id="mortuaryTabletChange">
     <a href="#" id="mortuaryTabletAddChange" onclick="mortuaryTabletAddChange()">△</a>
@@ -339,4 +367,8 @@ function mortuaryTabletChange() {
     }
     document.getElementById('mortuaryTablet').remove();
     document.body.innerHTML += `<img id="mortuaryTablet" src="Picture/位牌${mortuaryTabletChangeCount}.png">`;
+}
+
+function backInput() {
+
 }
